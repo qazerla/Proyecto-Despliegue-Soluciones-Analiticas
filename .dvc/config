@@ -1,0 +1,4 @@
+[core]
+    remote = almacen
+['remote "almacen"']
+    url = gdrive://19wvp4yKvURtMx7zLC8yCqleLZvVTcUyO
