@@ -1,0 +1,5 @@
+outs:
+- md5: 7b1f1b56b03a89e2918eceecdcfd0146
+  size: 134438224
+  hash: md5
+  path: pereira.csv
