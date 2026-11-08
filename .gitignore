@@ -1,1 +1,6 @@
 /pereira.csv
+.venv/
+*.pem
+mlruns/
+mlflow.db
+__pycache__/
