@@ -1,0 +1,52 @@
+{
+  "n_anotaciones": 552153,
+  "n_unicas": 81497,
+  "n_train": 61295,
+  "modelos": {
+    "rf": {
+      "etiqueta": "Random Forest",
+      "registro": "valor_esperado_random_forest",
+      "version": "1",
+      "sigma": 0.9578681075484652,
+      "metricas": {
+        "rmse_log": 1.448314863252893,
+        "mae_log": 1.1885635142577786,
+        "r2_log": -0.014652180367785705,
+        "sigma_robusto": 0.95786810754846,
+        "roc_auc_sintetico": 0.9014553748005926,
+        "auc_pr_sintetico": 0.7187129285230345,
+        "tiempo_entrenamiento_s": 1.2039291858673096
+      }
+    },
+    "xgb": {
+      "etiqueta": "XGBoost",
+      "registro": "valor_esperado_xgboost",
+      "version": "1",
+      "sigma": 0.9142923377893449,
+      "metricas": {
+        "rmse_log": 1.521128496422501,
+        "mae_log": 1.150428249492101,
+        "r2_log": -0.11923948361845782,
+        "sigma_robusto": 0.9142923377893449,
+        "roc_auc_sintetico": 0.907186982230856,
+        "auc_pr_sintetico": 0.6750759263931192,
+        "tiempo_entrenamiento_s": 0.8464360237121582
+      }
+    },
+    "ensamble": {
+      "etiqueta": "Ensamble (stacking)",
+      "registro": "valor_esperado_ensamble",
+      "version": "1",
+      "sigma": 0.9268806783878937,
+      "metricas": {
+        "rmse_log": 1.4628565709356132,
+        "mae_log": 1.1199459547208446,
+        "r2_log": -0.03512956128315037,
+        "sigma_robusto": 0.9268806783878937,
+        "roc_auc_sintetico": 0.9113538947138474,
+        "auc_pr_sintetico": 0.6965958548862835,
+        "tiempo_entrenamiento_s": 12.185042381286621
+      }
+    }
+  }
+}
