@@ -8,6 +8,7 @@ import mlflow.pyfunc
 import numpy as np
 import pandas as pd
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import HTMLResponse
 from mlflow.tracking import MlflowClient
 from pydantic import BaseModel, Field
 
@@ -33,6 +34,67 @@ app = FastAPI(
     version="1.0.0",
     description="Servicio de inferencia de valor esperado y detección de compraventas atípicas.",
 )
+
+@app.get("/", response_class=HTMLResponse)
+def root():
+    return """
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>API Radar de Transacciones Atípicas</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f6f9;
+                color: #1f2937;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                margin: 0;
+            }
+            .card {
+                background: #ffffff;
+                padding: 2rem;
+                border-radius: 10px;
+                box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+                max-width: 520px;
+                text-align: center;
+            }
+            h1 {
+                font-size: 1.4rem;
+                margin-bottom: 0.75rem;
+            }
+            p {
+                color: #4b5563;
+                margin-bottom: 1.5rem;
+                line-height: 1.5;
+            }
+            .btn {
+                display: inline-block;
+                background-color: #16a34a;
+                color: #ffffff;
+                text-decoration: none;
+                padding: 0.75rem 1.4rem;
+                border-radius: 6px;
+                font-weight: bold;
+            }
+            .btn:hover {
+                background-color: #15803d;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <h1>API Radar de Transacciones Atípicas - ORIP 290 Pereira</h1>
+            <p>Servicio de inferencia de valor esperado y detección de compraventas atípicas.</p>
+            <a class="btn" href="/docs">Ir a Documentación (/docs)</a>
+        </div>
+    </body>
+    </html>
+    """
 
 
 class TransaccionEntrada(BaseModel):
