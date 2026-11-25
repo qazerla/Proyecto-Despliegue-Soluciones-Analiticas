@@ -14,4 +14,4 @@ COPY radar_dash /app
 
 EXPOSE 8051
 
-CMD ["waitress-serve", "--host=0.0.0.0", "--port=8051", "app:server"]
+CMD ["waitress-serve", "--host=0.0.0.0", "--port=8051", "app_v1:server"]
