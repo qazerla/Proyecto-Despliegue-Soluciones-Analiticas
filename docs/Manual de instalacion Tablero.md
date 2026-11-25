@@ -63,8 +63,8 @@ Si dice `app:server`, cambiarlo; de lo contrario el contenedor del tablero se de
 Las dos imágenes se construyen desde la raíz del repositorio, porque los Dockerfiles copian archivos de varias carpetas:
 
 ```bash
-docker build -f api/Dockerfile -t radar-api .
-docker build -f radar_dash/Dockerfile -t radar-tablero .
+docker build -f api/Dockerfile -t api:lastest .
+docker build -f radar_dash/Dockerfile -t radar_dash:lastest .
 ```
 
 ## 6. Ejecutar los contenedores
@@ -75,7 +75,7 @@ La API y el tablero deben estar en la misma red de Docker para que el tablero en
 docker network create radar-net
 
 docker run -d --name api --network radar-net -p 8000:8000 \
-  -e MLFLOW_TRACKING_URI=http://34.227.194.203:8050 \
+  -e MLFLOW_TRACKING_URI=http://34.227.194.203:8050 \ #Esta URI debe corresponder a la dirección definida para el MLFLOW
   --restart unless-stopped radar-api
 
 docker run -d --name tablero --network radar-net -p 8051:8051 \
